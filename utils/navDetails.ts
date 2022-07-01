@@ -1,14 +1,5 @@
 export default [
   {
-    id: '0',
-    title: 'Kuoleman huikat',
-    description:
-      'Kuoleman huikat pelissä peli antaa satunnaisesti huikkaa, jos kieltäydyt, saat tehtävän',
-    image: require('../assets/beer.png'),
-    press: 'roullete',
-    buttonText: 'Pelataan!',
-  },
-  {
     id: '1',
     title: 'HuikkaPeli',
     description:
@@ -35,6 +26,15 @@ export default [
   },
   {
     id: '4',
+    title: 'Kuoleman huikat',
+    description:
+      'Kuoleman huikat pelissä peli antaa satunnaisesti huikkaa, jos kieltäydyt, saat tehtävän',
+    image: require('../assets/beer.png'),
+    press: 'roullete',
+    buttonText: 'Pelataan!',
+  },
+  {
+    id: '5',
     title: 'Lisää uusi tehtävä',
     description: 'Tästä saat lisättyä omia tehtäviä Huikkapeliin!',
     image: require('../assets/add.png'),

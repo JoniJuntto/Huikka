@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, Pressable, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Dimensions,
+  Image,
+} from 'react-native';
 import {useAppSelector} from '../hooks';
 import Tasks from '../utils/Tasks';
 
@@ -13,19 +20,29 @@ export default function Roullette() {
   const [drink, setDrink] = useState<number>(0);
   const [declineTask, setDeclineTask] = useState('');
   const [declinePressed, setDeclinePressed] = useState(false);
+  const [latestPlayer, setLatestPlayer] = useState('');
 
   useEffect(() => {
     const random = Math.floor(Math.random() * players.length);
     setPlayer(players[random]);
+    setLatestPlayer(players[random]);
     console.log(players[random]);
     const randomDrink = Math.floor(Math.random() * 3 * drinks);
     setDrink(randomDrink);
   }, [players, drinks]);
 
+  const getRandom = () => {
+    return Math.floor(Math.random() * players.length);
+  };
+
   const refresh = () => {
     setDeclinePressed(false);
-    const random = Math.floor(Math.random() * players.length);
-    setPlayer(players[random]);
+    let randomPlayer = players[getRandom()];
+    while (latestPlayer === randomPlayer) {
+      randomPlayer = players[getRandom()];
+    }
+    setLatestPlayer(randomPlayer);
+    setPlayer(randomPlayer);
     const randomDrink = Math.floor(Math.random() * 3 * drinks);
     setDrink(randomDrink);
   };
@@ -40,6 +57,10 @@ export default function Roullette() {
     <View>
       {declinePressed ? (
         <Pressable style={{width: width, height: height}} onPress={refresh}>
+          <Image
+            style={{width: 400, height: 250, resizeMode: 'contain'}}
+            source={require('../assets/lapinakuvataustalogo.png')}
+          />
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
             <Text style={{color: 'white', fontSize: 30, fontWeight: 'bold'}}>
               {declineTask}
@@ -51,6 +72,10 @@ export default function Roullette() {
         </Pressable>
       ) : (
         <View style={styles.container}>
+          <Image
+            style={{width: 400, height: 250, resizeMode: 'contain'}}
+            source={require('../assets/lapinakuvataustalogo.png')}
+          />
           <Text style={styles.text}>{player}</Text>
           <Text style={styles.text}>Ota {drink} huikkaa!</Text>
           <View
@@ -95,7 +120,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
     alignSelf: 'center',
     textDecorationLine: 'underline',
-
   },
   button: {
     padding: 10,

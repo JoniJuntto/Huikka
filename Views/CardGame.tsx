@@ -86,8 +86,12 @@ export default function CardGame() {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={drawCard}>
+    <View style={{justifyContent: 'center'}}>
+      <Image
+        style={{width: 400, height: 250, resizeMode: 'contain'}}
+        source={require('../assets/lapinakuvataustalogo.png')}
+      />
+      <TouchableOpacity onPress={drawCard} style={{alignSelf: 'center'}}>
         <Image
           style={{
             width: 350,

@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {Text, View, Pressable, Image} from 'react-native';
 import styles from '../styles';
 import {useAppSelector} from '../hooks';
 import PlayerList from '../utils/list';
-
 
 export default function Huikka() {
   const drinks = useAppSelector(state => state.drinks.value);
@@ -16,18 +15,27 @@ export default function Huikka() {
   );
   const [usedTasks, setUsedTasks] = useState<string[]>([]);
   const listSize = list.length;
+  const [latestPlayer, setLatestPlayer] = useState('');
 
   const createTask = () => {
     return list[Math.floor(Math.random() * list.length)];
   };
 
+  const getRandomPlayer = () => {
+    var randomPlayer =
+      playerList[Math.floor(Math.random() * playerList.length)];
+    return randomPlayer;
+  };
+
   const makeDraw = () => {
-    console.log(playerList);
     if (playerList.length === 0) {
       setTextOnScreen('Lisää pelaajia aloitusnäytöllä');
     } else if (playerList.length > 0) {
-      var randomPlayer =
-        playerList[Math.floor(Math.random() * playerList.length)];
+      let randomPlayer = getRandomPlayer();
+      while (randomPlayer === latestPlayer) {
+        randomPlayer = getRandomPlayer();
+      }
+      setLatestPlayer(randomPlayer);
       var randomTask = createTask();
       if (listSize === usedTasks.length) {
         setTextOnScreen(
@@ -45,7 +53,7 @@ export default function Huikka() {
 
   return (
     <View>
-      <TouchableOpacity onPress={makeDraw}>
+      <Pressable onPress={makeDraw}>
         <View style={styles.peliStyle}>
           <Image
             style={styles.imageStyle}
@@ -53,7 +61,7 @@ export default function Huikka() {
           />
           <Text style={styles.taskText}>{textOnScreen}</Text>
         </View>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }

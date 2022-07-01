@@ -23,8 +23,7 @@ export default function StartingScreen({navigation}: any) {
     dispatch(setDrinks(drinkCount));
     navigation.navigate(destination);
   };
-  const url =
-    'https://github.com/JoniJuntto/ReactJuomapeli/tree/main/HuikkaPeli';
+  const url = 'https://github.com/JoniJuntto/Huikka';
 
   const handlePress = useCallback(async () => {
     const supported = await Linking.canOpenURL(url);
