@@ -77,6 +77,7 @@ export default StyleSheet.create({
     width: 400,
     height: 250,
     resizeMode: 'contain',
+    alignSelf: 'center',
   },
   addPlayerInputStyle: {
     height: 40,

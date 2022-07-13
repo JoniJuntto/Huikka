@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   image: {
     justifyContent: 'center',
     marginVertical: 30,
+    alignSelf: 'center',
   },
   title: {
     fontWeight: '800',
