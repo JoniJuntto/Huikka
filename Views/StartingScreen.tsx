@@ -65,16 +65,6 @@ export default function StartingScreen({navigation}: any) {
           onPress={() => setDrinksAndNavigate('AddPlayers')}
         />
       </View>
-      <View style={styles.StartContainer}>
-        <Text style={{marginTop: 190, color: 'white'}}>Made by Huikka</Text>
-        <SocialIcon
-          style={{width: 350, marginTop: 10}}
-          title="GitHub"
-          button
-          type="github"
-          onPress={handlePress}
-        />
-      </View>
     </View>
   );
 }

@@ -37,56 +37,72 @@ const App = () => {
           <Stack.Navigator>
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="Start"
               component={StartingScreen}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="NavigationScreen"
               component={NavigationScreen}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="AddPlayers"
               component={AddPlayers}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="huikka"
               component={Huikka}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="cardGame"
               component={CardGame}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="explain"
               component={Explain}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="addOwnTasks"
               component={AddOwnTasks}
             />
             <Stack.Screen
               options={{
-                headerShown: false,
+                headerShown: true,
+                headerTransparent: true,
+                title: '',
               }}
               name="roullete"
               component={Roullette}
